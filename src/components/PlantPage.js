@@ -3,7 +3,7 @@ import NewPlantForm from "./NewPlantForm";
 import PlantList from "./PlantList";
 import Search from "./Search";
 
-function PlantPage({ plants, setPlants, toggleSoldOut }) {
+function PlantPage({ plants, setPlants, toggleSoldOut, deletePlant }) {
   const [search, setSearch] = useState("")
 const filteredPlants = plants.filter((plant) =>
 plant.name.toLowerCase().includes(search.toLowerCase())
@@ -15,7 +15,9 @@ const handleAddPlant = (newPlant) => {
     <main>
       <NewPlantForm onAddPlant={handleAddPlant}/>
       <Search search={search} setSearch={setSearch}/>
-      <PlantList plants={filteredPlants} toggleSoldOut={toggleSoldOut}/>
+      <PlantList plants={filteredPlants} 
+      toggleSoldOut={toggleSoldOut} 
+      deletePlant={deletePlant}/>
     </main>
   );
 }

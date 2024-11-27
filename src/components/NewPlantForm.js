@@ -17,8 +17,8 @@ function NewPlantForm({ onAddPlant }) {
   } )
   .then((response) => response.json())
   .then(onAddPlant)
-  setFormData({ name:"", image:"", price: ""});
- 
+  setFormData(initialState);
+  e.target.reset()
   };
   return (
     <div className="new-plant-form">

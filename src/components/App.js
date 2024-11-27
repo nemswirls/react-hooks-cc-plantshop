@@ -18,10 +18,20 @@ const toggleSoldOut = (id) => {
     )
   );
 };
+const deletePlant = (id) => {
+  fetch(`http://localhost:6001/plants/${id}`, {
+    method: "DELETE",
+  }).then(() =>
+    setPlants((prevPlants) => prevPlants.filter((plant) => plant.id !== id))
+  );
+};
   return (
     <div className="app">
       <Header />
-      <PlantPage plants={plants} setPlants={setPlants} toggleSoldOut={toggleSoldOut}/>
+      <PlantPage plants={plants} 
+      setPlants={setPlants} 
+      toggleSoldOut={toggleSoldOut} 
+      deletePlant={deletePlant}/>
     </div>
   );
 }
